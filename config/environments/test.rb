@@ -29,7 +29,10 @@ MongoCucumRspecFact2::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
-
+  require 'bcrypt'
+  silence_warnings do
+    BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
+  end
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
